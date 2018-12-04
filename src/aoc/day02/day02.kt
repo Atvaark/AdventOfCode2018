@@ -1,4 +1,4 @@
-package demo
+package aoc.day02
 
 import java.io.File
 
