@@ -3,23 +3,21 @@ package aoc.day05
 import java.io.File
 
 fun main(args: Array<String>) {
-    var text = File("input/day05.txt").readText().trimEnd()
+    val text = File("input/day05.txt").readText().trimEnd()
 
-    var input = react(text)
+    val input = react(text)
     val result1 = input.size
     println(result1)
 
     val types = text.toLowerCase().groupBy { it }.keys
 
-    var minType = Char.MAX_VALUE
     var minLen = Int.MAX_VALUE
     for (type in types) {
         val text2 = String(text.toMutableList().filter { !it.equals(type, ignoreCase = true) }.toCharArray())
         val input2  = react(text2)
 
-        if (input2.length < minLen) {
-            minType = type
-            minLen = input2.length
+        if (input2.size < minLen) {
+            minLen = input2.size
         }
     }
 	
